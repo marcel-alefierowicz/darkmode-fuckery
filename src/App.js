@@ -1,23 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import DarkMode from "./components/darkmode";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="absolute h-screen bg-main w-screen dark:bg-main-gray">
+      <div className="justify-center items-center h-screen flex">
+        <DarkMode/>
+      </div>
     </div>
   );
 }
