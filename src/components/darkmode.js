@@ -1,11 +1,17 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import reactDom from "react-dom";
 import "../index.css";
+import { BsMoonStarsFill, BsSun, BsSunFill } from 'react-icons/bs';
+
 
 const DarkMode = () => {
   let clickedClass = "clicked";
   const lightTheme = "light";
   const darkTheme = "dark";
   let theme;
+
+
+  const [Content, setContent] = useState(<BsMoonStarsFill/>)
 
   if (localStorage) {
     theme = localStorage.getItem("theme");
@@ -23,23 +29,28 @@ const DarkMode = () => {
       e.target.classList.remove(clickedClass);
       localStorage.setItem("theme", "light");
       theme = lightTheme;
+      setContent(<BsMoonStarsFill/>);
+
     } else {
       document.documentElement.classList.replace(lightTheme, darkTheme);
       e.target.classList.add(clickedClass);
       localStorage.setItem("theme", "dark");
       theme = darkTheme;
+      setContent(<BsSunFill/>)
     }
   };
 
   return (
-    <div className="">
+    <div>
       <button
         className={theme === "dark" ? clickedClass : ""}
         id="darkMode"
         onClick={(e) => switchTheme(e)}
-      ></button>
+      > 
+
+       {Content} 
+      </button>
     </div>
   );
-};
-
+}; 
 export default DarkMode;
