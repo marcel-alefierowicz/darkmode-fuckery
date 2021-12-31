@@ -1,56 +1,44 @@
-import React, {useState, useEffect} from "react";
+import { BsMoonStarsFill, BsSun, BsSunFill } from "react-icons/bs";
+import React, { useState, useEffect } from "react";
 import reactDom from "react-dom";
 import "../index.css";
-import { BsMoonStarsFill, BsSun, BsSunFill } from 'react-icons/bs';
-
 
 const DarkMode = () => {
-  let clickedClass = "clicked";
-  const lightTheme = "light";
-  const darkTheme = "dark";
-  let theme;
+  let clicked = "clicked",
+    light = "light",
+    dark = "dark";
 
+  const [Content, setContent] = useState(<BsMoonStarsFill />);
 
-  const [Content, setContent] = useState(<BsMoonStarsFill/>)
+  let theme = localStorage ? localStorage.getItem("theme") : light;
 
-  if (localStorage) {
-    theme = localStorage.getItem("theme");
-  }
-
-  if (theme === lightTheme || theme === darkTheme) {
-    document.documentElement.classList.add(theme);
-  } else {
-    document.documentElement.classList.add(lightTheme);
-  }
+  document.documentElement.classList.add(theme);
 
   const switchTheme = (e) => {
-    if (theme === darkTheme) {
-      document.documentElement.classList.replace(darkTheme, lightTheme);
-      e.target.classList.remove(clickedClass);
-      localStorage.setItem("theme", "light");
-      theme = lightTheme;
-      setContent(<BsMoonStarsFill/>);
+    document.documentElement.classList.remove(light, dark);
+    theme = theme === light ? dark : light;
+    e.target.classList.remove(clicked);
 
-    } else {
-      document.documentElement.classList.replace(lightTheme, darkTheme);
-      e.target.classList.add(clickedClass);
-      localStorage.setItem("theme", "dark");
-      theme = darkTheme;
-      setContent(<BsSunFill/>)
+    localStorage.setItem("theme", theme);
+
+    switch (theme) {
+      case light:
+        return setContent(<BsSunFill />);
+      case dark:
+        return setContent(<BsMoonStarsFill />);
     }
   };
 
   return (
     <div>
       <button
-        className={theme === "dark" ? clickedClass : ""}
+        className={theme === "dark" ? clicked : ""}
         id="darkMode"
         onClick={(e) => switchTheme(e)}
-      > 
-
-       {Content} 
+      >
+        {Content}
       </button>
     </div>
   );
-}; 
+};
 export default DarkMode;
