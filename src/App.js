@@ -1,14 +1,18 @@
 import "./index.css";
-import DarkMode from "./components/darkmode";
-
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div class="absolute h-screen bg-main w-screen dark:bg-main-gray">
-      <div className="justify-center items-center h-screen flex">
-        <DarkMode/>
-      </div>
+    <div className='flex'>
+        <div class="absolute justify-center h-screen w-screen bg-main dark:bg-main-gray">
+            <div className='flex items-center justify-center bg-transparent/5 dark:bg-transparent/20'>
+                <Navbar />
+            </div>
+        </div>
+
+
     </div>
+    
   );
 }
 

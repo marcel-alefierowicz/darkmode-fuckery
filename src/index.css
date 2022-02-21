@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 #darkMode {
-    @apply relative flex items-center justify-center
-           h-12 w-12 mt-2 mb-2 mx-auto shadow-sm
+    @apply flex items-center justify-center
+           h-12 w-12 mr-4 my-2 mx-auto shadow-sm
             transition-all duration-300 rounded-lg
-            hover:rounded-2xl 
+            hover:rounded-2xl float-right
             bg-violet-900 text-white
             dark:bg-yellow-500 dark:text-black
   }
 
 body{
-    @apply transition-all duration-200
+    @apply transition-all duration-200; 
 }

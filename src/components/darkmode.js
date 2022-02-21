@@ -30,7 +30,7 @@ const DarkMode = () => {
   };
 
   return (
-    <div>
+    
       <button
         className={theme === "dark" ? clicked : ""}
         id="darkMode"
@@ -38,7 +38,7 @@ const DarkMode = () => {
       >
         {Content}
       </button>
-    </div>
+    
   );
 };
 export default DarkMode;
