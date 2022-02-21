@@ -14,3 +14,7 @@
 body{
     @apply transition-all duration-200; 
 }
+.rotate:hover{
+    transform:rotate(30deg);
+    @apply transition-all duration-300
+}

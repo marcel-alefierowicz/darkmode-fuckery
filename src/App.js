@@ -8,6 +8,10 @@ function App() {
             <div className='flex items-center justify-center bg-transparent/5 dark:bg-transparent/20'>
                 <Navbar />
             </div>
+            
+            <div className='flex justify-center w-3/5 h-screen'>
+              todo
+            </div>
         </div>
 
 
